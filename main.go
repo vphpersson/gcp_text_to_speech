@@ -65,7 +65,7 @@ func synthesizeChunks(
 	errGroup, errGroupCtx := errgroup.WithContext(ctx)
 
 	for i, chunk := range chunks {
-		if err := ctx.Err(); err != nil {
+		if err := errGroupCtx.Err(); err != nil {
 			break
 		}
 
